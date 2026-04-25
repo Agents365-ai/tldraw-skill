@@ -210,6 +210,11 @@ If this skill helps you, consider supporting the author:
       <br>
       <b>Buy Me a Coffee</b>
     </td>
+    <td align="center">
+      <img src="https://raw.githubusercontent.com/Agents365-ai/images_payment/main/awarding/award.gif" width="180" alt="Give a Reward">
+      <br>
+      <b>Give a Reward</b>
+    </td>
   </tr>
 </table>
 
