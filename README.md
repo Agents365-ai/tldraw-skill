@@ -103,9 +103,12 @@ git clone https://github.com/Agents365-ai/tldraw-skill.git .opencode/skills/tldr
 
 Opencode also reads `~/.claude/skills/` and `.claude/skills/`, so an existing Claude Code install is automatically picked up — no second clone needed.
 
-### OpenClaw
+### OpenClaw / ClawHub
 
 ```bash
+# Via ClawHub CLI (recommended)
+clawhub install tldraw-pro-skill
+
 # Manual install
 git clone https://github.com/Agents365-ai/tldraw-skill.git ~/.openclaw/skills/tldraw-skill
 
@@ -145,6 +148,13 @@ To update manually:
 
 ```bash
 cd <your-install-path>/tldraw-skill && git pull
+```
+
+Package-manager installs handle updates themselves:
+
+```bash
+# ClawHub
+clawhub update tldraw-pro-skill
 ```
 
 ## Usage
