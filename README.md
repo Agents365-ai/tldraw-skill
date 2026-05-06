@@ -84,10 +84,14 @@ Requires Node.js (npm). Works identically on macOS, Windows, and Linux — no ex
 ### Claude Code
 
 ```bash
-# Global install (available in all projects)
+# Plugin marketplace (recommended)
+/plugin marketplace add Agents365-ai/365-skills
+/plugin install tldraw
+
+# Manual global install
 git clone https://github.com/Agents365-ai/tldraw-skill.git ~/.claude/skills/tldraw-skill
 
-# Project-level install
+# Manual project-level install
 git clone https://github.com/Agents365-ai/tldraw-skill.git .claude/skills/tldraw-skill
 ```
 
