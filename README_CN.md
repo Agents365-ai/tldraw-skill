@@ -15,19 +15,6 @@
 - 当图表有助于解释复杂系统时自动触发
 - 默认手绘白板风格，可切换为干净字体
 
-## 多平台支持
-
-支持所有兼容 [Agent Skills](https://agentskills.io) 格式的 AI 编程助手：
-
-| 平台 | 状态 | 说明 |
-|------|------|------|
-| **Claude Code** | ✅ 完整支持 | 原生 SKILL.md 格式 |
-| **Opencode** | ✅ 完整支持 | 通过 `skill` 工具调用，同时读取 `.claude/skills/` 路径 |
-| **OpenClaw / ClawHub** | ✅ 完整支持 | `metadata.openclaw` 命名空间、依赖守卫、ClawHub 安装器 |
-| **Hermes Agent** | ✅ 完整支持 | `metadata.hermes` 命名空间、tags、工具守卫 |
-| **OpenAI Codex** | ✅ 兼容 | 放置在 `.agents/skills/` 即可 |
-| **SkillsMP** | ✅ 已索引 | 已配置 GitHub topics |
-
 ## 对比
 
 ### vs 原生 Agent（无 skill）
@@ -79,66 +66,24 @@ tldraw --version
 
 需要 Node.js（npm）。所有平台安装方式完全一致 —— 无需额外配置，无需浏览器自动化。
 
-## Skill 安装
-
-### Claude Code
+## 安装
 
 ```bash
-# 全局安装（所有项目可用）
+# 任意 Agent（Claude Code、Cursor、Copilot 等）
+npx skills add Agents365-ai/365-skills -g
+
+# 仅 Claude Code
+> /plugin marketplace add Agents365-ai/365-skills
+> /plugin install tldraw
+```
+
+手动安装 —— 克隆到你的 Agent skills 目录：
+
+```bash
 git clone https://github.com/Agents365-ai/tldraw-skill.git ~/.claude/skills/tldraw-skill
-
-# 项目级安装
-git clone https://github.com/Agents365-ai/tldraw-skill.git .claude/skills/tldraw-skill
 ```
 
-### Opencode
-
-```bash
-# 全局安装（Opencode 原生路径）
-git clone https://github.com/Agents365-ai/tldraw-skill.git ~/.config/opencode/skills/tldraw-skill
-
-# 项目级安装
-git clone https://github.com/Agents365-ai/tldraw-skill.git .opencode/skills/tldraw-skill
-```
-
-Opencode 也会读取 `~/.claude/skills/` 和 `.claude/skills/`，所以已有 Claude Code 安装会自动被识别 —— 无需重复 clone。
-
-### OpenClaw / ClawHub
-
-```bash
-# 通过 ClawHub CLI（推荐）
-clawhub install tldraw-pro-skill
-
-# 手动安装
-git clone https://github.com/Agents365-ai/tldraw-skill.git ~/.openclaw/skills/tldraw-skill
-
-# 项目级安装
-git clone https://github.com/Agents365-ai/tldraw-skill.git skills/tldraw-skill
-```
-
-### Hermes Agent
-
-```bash
-git clone https://github.com/Agents365-ai/tldraw-skill.git ~/.hermes/skills/design/tldraw-skill
-```
-
-### OpenAI Codex
-
-```bash
-git clone https://github.com/Agents365-ai/tldraw-skill.git ~/.agents/skills/tldraw-skill
-# 或项目级
-git clone https://github.com/Agents365-ai/tldraw-skill.git .agents/skills/tldraw-skill
-```
-
-### 安装路径汇总
-
-| 平台 | 全局路径 | 项目路径 |
-|------|---------|---------|
-| Claude Code | `~/.claude/skills/tldraw-skill/` | `.claude/skills/tldraw-skill/` |
-| Opencode | `~/.config/opencode/skills/tldraw-skill/`（也读取 `~/.claude/skills/`） | `.opencode/skills/tldraw-skill/` |
-| OpenClaw | `~/.openclaw/skills/tldraw-skill/` | `skills/tldraw-skill/` |
-| Hermes Agent | `~/.hermes/skills/design/tldraw-skill/` | 通过 `external_dirs` 配置 |
-| OpenAI Codex | `~/.agents/skills/tldraw-skill/` | `.agents/skills/tldraw-skill/` |
+常用路径：`~/.claude/skills/`（Claude Code）、`~/.config/opencode/skills/`（Opencode）、`~/.openclaw/skills/`（OpenClaw）、`~/.agents/skills/`（Codex）。同时已索引于 [SkillsMP](https://skillsmp.com) 和 [ClawHub](https://clawhub.ai/agents365-ai/tldraw-pro-skill)。
 
 ## 更新
 

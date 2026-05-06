@@ -15,19 +15,6 @@
 - Triggers automatically when diagrams would help explain complex systems
 - Hand-drawn whiteboard aesthetic by default; switchable to clean fonts
 
-## Multi-Platform Support
-
-Works with all major AI coding agents that support the [Agent Skills](https://agentskills.io) format:
-
-| Platform | Status | Details |
-|----------|--------|---------|
-| **Claude Code** | ✅ Full support | Native SKILL.md format |
-| **Opencode** | ✅ Full support | Native SKILL.md via `skill` tool; also reads `.claude/skills/` paths |
-| **OpenClaw / ClawHub** | ✅ Full support | `metadata.openclaw` namespace, dependency gating, ClawHub installer |
-| **Hermes Agent** | ✅ Full support | `metadata.hermes` namespace, tags, tool gating |
-| **OpenAI Codex** | ✅ Compatible | Place under `.agents/skills/` |
-| **SkillsMP** | ✅ Indexed | GitHub topics configured |
-
 ## Comparison
 
 ### vs Native Agent (no skill)
@@ -79,70 +66,24 @@ tldraw --version
 
 Requires Node.js (npm). Works identically on macOS, Windows, and Linux — no extra setup required, no browser automation.
 
-## Skill Installation
-
-### Claude Code
+## Installation
 
 ```bash
-# Plugin marketplace (recommended)
-/plugin marketplace add Agents365-ai/365-skills
-/plugin install tldraw
+# Any agent (Claude Code, Cursor, Copilot, etc.)
+npx skills add Agents365-ai/365-skills -g
 
-# Manual global install
+# Claude Code only
+> /plugin marketplace add Agents365-ai/365-skills
+> /plugin install tldraw
+```
+
+Manual install — clone into your agent's skills directory:
+
+```bash
 git clone https://github.com/Agents365-ai/tldraw-skill.git ~/.claude/skills/tldraw-skill
-
-# Manual project-level install
-git clone https://github.com/Agents365-ai/tldraw-skill.git .claude/skills/tldraw-skill
 ```
 
-### Opencode
-
-```bash
-# Global install (Opencode-native path)
-git clone https://github.com/Agents365-ai/tldraw-skill.git ~/.config/opencode/skills/tldraw-skill
-
-# Project-level install
-git clone https://github.com/Agents365-ai/tldraw-skill.git .opencode/skills/tldraw-skill
-```
-
-Opencode also reads `~/.claude/skills/` and `.claude/skills/`, so an existing Claude Code install is automatically picked up — no second clone needed.
-
-### OpenClaw / ClawHub
-
-```bash
-# Via ClawHub CLI (recommended)
-clawhub install tldraw-pro-skill
-
-# Manual install
-git clone https://github.com/Agents365-ai/tldraw-skill.git ~/.openclaw/skills/tldraw-skill
-
-# Project-level install
-git clone https://github.com/Agents365-ai/tldraw-skill.git skills/tldraw-skill
-```
-
-### Hermes Agent
-
-```bash
-git clone https://github.com/Agents365-ai/tldraw-skill.git ~/.hermes/skills/design/tldraw-skill
-```
-
-### OpenAI Codex
-
-```bash
-git clone https://github.com/Agents365-ai/tldraw-skill.git ~/.agents/skills/tldraw-skill
-# or project-level
-git clone https://github.com/Agents365-ai/tldraw-skill.git .agents/skills/tldraw-skill
-```
-
-### Installation paths summary
-
-| Platform | Global path | Project path |
-|----------|-------------|--------------|
-| Claude Code | `~/.claude/skills/tldraw-skill/` | `.claude/skills/tldraw-skill/` |
-| Opencode | `~/.config/opencode/skills/tldraw-skill/` (also reads `~/.claude/skills/`) | `.opencode/skills/tldraw-skill/` |
-| OpenClaw | `~/.openclaw/skills/tldraw-skill/` | `skills/tldraw-skill/` |
-| Hermes Agent | `~/.hermes/skills/design/tldraw-skill/` | Via `external_dirs` config |
-| OpenAI Codex | `~/.agents/skills/tldraw-skill/` | `.agents/skills/tldraw-skill/` |
+Common paths: `~/.claude/skills/` (Claude Code), `~/.config/opencode/skills/` (Opencode), `~/.openclaw/skills/` (OpenClaw), `~/.agents/skills/` (Codex). Also indexed on [SkillsMP](https://skillsmp.com) and [ClawHub](https://clawhub.ai/agents365-ai/tldraw-pro-skill).
 
 ## Updates
 
